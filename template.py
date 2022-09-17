@@ -15,6 +15,9 @@ list_of_files = [
     f"src/{package_name}/pipeline/__init__.py",
     f"src/{package_name}/entity/__init__.py",
     f"src/{package_name}/constants/__init__.py",
+    "tests/__init__.py",
+    "tests/unit/__init__.py",                    # unit tests always take results from a single unit, such as a function call
+    "tests/integration/__init__.py",             # integration tests may aggregate results from various parts and sources
     "configs/config.yaml",                        # to contains all configuraions
     "dvc.yaml",                                   # to create data version control file
     "params.yaml",                                # to have all training parameters at one place

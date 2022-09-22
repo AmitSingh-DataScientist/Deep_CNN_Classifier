@@ -1,0 +1,1 @@
+from deepCNNClassifier.config.configuration import ConfigurationManager

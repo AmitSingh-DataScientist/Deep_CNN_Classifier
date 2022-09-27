@@ -11,6 +11,7 @@ pyYAML
 tqdm
 ensure==1.0.2
 joblib
+types-PyYAML
 -e .  # it will help to install local packges which present in 'src'
 
 ## Dev requirements

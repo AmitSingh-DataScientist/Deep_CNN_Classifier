@@ -1,1 +1,2 @@
 from deepCNNClassifier.components.data_ingestion import DataIngestion
+from deepCNNClassifier.components.component_base_model import PrepareBaseModel

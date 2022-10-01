@@ -6,3 +6,33 @@ stages:
       - configs/config.yaml
     outs:
       - artifacts/data_ingestion/PetImages
+  
+  prepare_base_model:
+    cmd: python src/deepCNNClassifier/pipeline/stage_02_prepare_base_model.py
+    deps:
+      - src/deepCNNClassifier/pipeline/stage_02_prepare_base_model.py
+      - configs/config.yaml
+    params:
+      - IMAGE_SIZE
+      - INCLUDE_TOP
+      - CLASSES
+      - WEIGHTS
+      - LEARNING_RATE
+    outs:
+      - artifacts/prepare_base_model
+
+  training:
+    cmd: python src/deepCNNClassifier/pipeline/stage_03_training.py
+    deps:
+      - src/deepCNNClassifier/pipeline/stage_03_training.py
+      - src/deepCNNClassifier/components/prepare_callback.py
+      - configs/config.yaml
+      - artifacts/data_ingestion/PetImages
+      - artifacts/prepare_base_model
+    params:
+      - EPOCHS
+      - IMAGE_SIZE
+      - BATCH_SIZE
+      - AUGMENTATION
+    outs:
+      - artifacts/training/model.h5

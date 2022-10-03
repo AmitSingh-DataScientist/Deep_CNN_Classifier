@@ -4,7 +4,8 @@ from deepCNNClassifier.entity import (
     DataIngestionConfig,
     PrepareBaseModelConfig,
     PrepareCallbacksConfig,
-    TrainingConfig
+    TrainingConfig,
+    EvaluationConfig
 )
 from pathlib import Path
 import os
@@ -84,3 +85,15 @@ class ConfigurationManager:
         )
 
         return training_config
+
+    
+    def get_validation_config(self) -> EvaluationConfig:
+        eval_config = EvaluationConfig(
+            path_of_model=self.config.training.trained_model_path,
+            training_data=self.config.data_ingestion.unzip_dir,
+            # mlflow_uri="https://dagshub.com/c17hawke/FSDS_NOV_deepCNNClassifier.mlflow",
+            # all_params=self.params,
+            params_image_size=self.params.IMAGE_SIZE,
+            params_batch_size=self.params.BATCH_SIZE
+        )
+        return eval_config

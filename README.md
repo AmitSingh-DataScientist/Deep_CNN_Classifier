@@ -46,3 +46,7 @@ export DOCKER_BUILDKIT=0
 export COMPOSE_DOCKER_CLI_BUILD=0
 
 This will fix that error and you will be able to build your docker image.
+
+
+## Sample data for testing-
+https://raw.githubusercontent.com/c17hawke/raw_data/main/sample_data.zip
